@@ -8,7 +8,7 @@
 | 路径 | 内容 |
 |---|---|
 | `sim/` | 战斗引擎与试算比较器（原 `server/sim/` 的导出）。纯 ESM，无 Node API、无时钟、无随机 |
-| `shared/` | 内核依赖的共享常量与数据模型（`constants` / `potential` / `diy` / `standIn` / `loadoutRecord` / `i18n` / `i18nPacks` / `lineupFeatures`） |
+| `shared/` | 内核依赖的共享常量与数据模型（`constants` / `potential` / `diy` / `standIn` / `loadoutRecord` / `i18n` / `i18nPacks` / `lineupFeatures` / `scoringPolicy` / `scoringQueue`） |
 | `data/` | 11 个数据文件：`chess` `enemies` `tokens` `stages` `waves` `bonds` `items` `garrisons` `bands` `effects` `backups` |
 | `worker/` | 浏览器侧适配：`rehearsalWorker.js`（Worker 入口，只回候选编号）、`rehearsal.js`（协议与调度） |
 | `host/` | `runner.js`（客户端运行循环示例；依赖上层 `net` / `store`，**不是**独立可跑） |
