@@ -12,15 +12,17 @@
 | `data/` | 11 个数据文件：`chess` `enemies` `tokens` `stages` `waves` `bonds` `items` `garrisons` `bands` `effects` `backups` |
 | `worker/` | 浏览器侧适配：`rehearsalWorker.js`（Worker 入口，只回候选编号）、`rehearsal.js`（协议与调度） |
 | `host/` | `runner.js`（客户端运行循环示例；依赖上层 `net` / `store`，**不是**独立可跑） |
+| `training/` | 布阵学习库的**键规则**（`key.mjs`，纯函数）+ 布局说明（每玩法 + 每难度一个文件，`lineups_<mode>__<DIFF>.jsonl`） |
 
 `sim/nodeData.js` 是唯一 Node-only 的文件（`node:fs` 读数据），浏览器侧不会加载它；
 保留它只是为了让 Node 侧也能用同一份内核。
 
 ## 来源与版本
 
-导出服务器仓 `jingjiangze/stronghold-server-server-agent` @ `32972cd` 的**工作树快照**。
-其中 `sim/rehearsal.js` 带一处尚未提交的早停改版（从「leaks 超过就停」改成按 `leaks + kills` 的
-分数天花板提前退出），导出的是工作树版本，不是该提交里的旧版本。
+导出服务器仓 `jingjiangze/stronghold-server-server-agent`，内核部分对应 `master` 分支
+（当前 `1e0d9a9`：学习库改为按「玩法 + 难度」分开之后）。
+`sim/rehearsal.js` 含早停改版（按 `leaks + kills` 的分数天花板提前退出）。
+`training/` 是本仓新增的导出层：只放键规则与布局说明，学习库的写入仍只在服务器仓。
 
 ## 怎么跑
 
